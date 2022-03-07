@@ -1,5 +1,8 @@
 :root{
   --black:#333;
+  --yellow:#fb1;
+  --brown:#764701;
+  ---white: #eee;
 
   --type-first:Helvetica,sans-serif,Arial;
   --type-second:'Spectral',Georgia;
