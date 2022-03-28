@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from '../../components/Forms/Button';
 import Input from '../../components/Forms/Input';
@@ -10,22 +10,23 @@ export default function LoginForm() {
 
     async function handleSubmit(event) {
         event.preventDefault();
-        const config = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                                    username:username.value,
-                                    password:password.value
-                                }),
+
+        if(username.validate() && password.validate()){
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                                        username:username.value,
+                                        password:password.value
+                                    }),
+            }
+    
+            const res = await fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', config)
+            const result = await res.json()
+            console.log(result)
         }
-
-        console.log(config)
-
-        const res = await fetch('https://dogsapi.origamid.dev/json/jwt-auth/v1/token', config)
-        const result = await res.json()
-        console.log(result)
     }
 
     return (
