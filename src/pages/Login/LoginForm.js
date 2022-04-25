@@ -8,7 +8,7 @@ import { UserContext } from '../../context/UserContext';
 export default function LoginForm() {
     const username = useForm();
     const password = useForm()
-    const {userLogin} = useContext(UserContext)
+    const {userLogin, error, loading} = useContext(UserContext)
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -25,7 +25,8 @@ export default function LoginForm() {
                 <Input label='Usário' type='text' name='user' {...username}/>
                 <Input label='Senha' type='password' name='password' {...password}/>
 
-                <Button>Entrar</Button>
+                {loading ? <Button disabled>Carregando</Button>:<Button>Entrar</Button>}
+                {error&&<p>{error}</p>}
             </form>
             <Link to="/login/create">Cadastro</Link>
         </section>
