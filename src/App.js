@@ -18,7 +18,12 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='login/*' element={<Login/>}/>
-            <Route path='account/*' element={<ProtectedRoute><User/></ProtectedRoute>}/>
+            <Route path='account/*' element={
+                                              <ProtectedRoute>
+                                                <User/>
+                                              </ProtectedRoute>
+                                            }
+            />
           </Routes>
           <Footer/>
         </UserProvider>
