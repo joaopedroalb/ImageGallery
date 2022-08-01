@@ -18,7 +18,7 @@ export function UserProvider({ children }) {
         setLogin(false)
         setLoading(false)
         window.localStorage.removeItem('token')
-        navigate('/teste')
+        navigate('/login')
     },[navigate])
 
     useEffect(()=>{
