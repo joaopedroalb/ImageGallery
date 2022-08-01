@@ -42,6 +42,8 @@ export function UserProvider({ children }) {
                 }finally{
                     setLoading(false)
                 }
+            }else{
+                setLogin(false)
             }
         }
 

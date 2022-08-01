@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Login from './pages/Login/Login';
 import {UserProvider} from './context/UserContext'
+import User from './components/User';
+import ProtectedRoute from './components/Helper/ProtectedRoute';
 
 function App() {
   return (
@@ -15,7 +17,8 @@ function App() {
           <Header/>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/login/*' element={<Login/>}/>
+            <Route path='login/*' element={<Login/>}/>
+            <Route path='account/*' element={<ProtectedRoute><User/></ProtectedRoute>}/>
           </Routes>
           <Footer/>
         </UserProvider>
